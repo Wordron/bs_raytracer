@@ -1,0 +1,12 @@
+*.a
+*.o
+*#*#*
+#*
+.#*
+*~
+
+vgcore*
+*.log
+a.out
+.vscode*
+a.out
