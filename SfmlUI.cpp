@@ -54,7 +54,7 @@ sf::RectangleShape RayTracer::SfmlUI::createPixel(sf::Vector2f position, Math::V
     return pixel;
 }
 
-void RayTracer::SfmlUI::addPixel(sf::Vector2f position, Math::Vector3D color)
+void RayTracer::SfmlUI::addPixel(std::pair<double, double> position, Math::Vector3D color)
 {
-    this->_pixels.push_back(this->createPixel(position, color));
+    this->_pixels.push_back(this->createPixel({ (float)position.first, (float)position.second }, color));
 }

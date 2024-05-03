@@ -27,7 +27,7 @@ namespace RayTracer {
             void display();
             bool event();
             sf::RectangleShape createPixel(sf::Vector2f position, Math::Vector3D color);
-            void addPixel(sf::Vector2f position, Math::Vector3D color);
+            void addPixel(std::pair<double, double> position, Math::Vector3D color);
 
         private:
             std::pair<unsigned int, unsigned int> _resolution;
