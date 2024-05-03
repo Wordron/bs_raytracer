@@ -7,6 +7,7 @@
 
 #include "Camera.hpp"
 #include "Sphere.hpp"
+#include "Plane.hpp"
 #include "SfmlUI.hpp"
 #include <iostream>
 
@@ -24,6 +25,7 @@ int main(void)
         Math::Vector3D(0, 0, 0));
     RayTracer::Sphere sphere1(Math::Point3D(1, 1, -1), 0.5);
     RayTracer::Sphere sphere2(Math::Point3D(0, 0, -1), 0.5);
+    RayTracer::Plane plane(Math::Vector3D(0, 0, 255), 0.5, "Y");
     RayTracer::SfmlUI ui(std::pair<unsigned int, unsigned int>(100, 100), "test");
     double u = 0.0;
     double v = 0.0;
@@ -35,17 +37,21 @@ int main(void)
             v = y / 100.0;
             RayTracer::Ray r = cam.ray(u, v);
 
-            if (sphere1.hits(r)) {
+            // if (sphere1.hits(r)) {
+            //     color.x = 255;
+            //     color.y = 0;
+            //     std::cout << "Hit at : (" << y << ", " << x << ")" << std::endl;
+            // } else if (sphere2.hits(r)) {
+            //     color.y = 255;
+            //     color.x = 0;
+            //     std::cout << "Hit at : (" << y << ", " << x << ")" << std::endl;
+            if (plane.hits(r)) {
                 color.x = 255;
-                color.y = 0;
-                std::cout << "Hit at : (" << y << ", " << x << ")" << std::endl;
-            } else if (sphere2.hits(r)) {
-                color.y = 255;
-                color.x = 0;
                 std::cout << "Hit at : (" << y << ", " << x << ")" << std::endl;
             } else {
-                color.y = 0;
                 color.x = 0;
+                color.y = 0;
+                color.z = 0;
                 std::cout << "Didn't hit at : (" << y << ", " << x << ")" << std::endl;
             }
             ui.addPixel({ (float)x, (float)y }, color);
