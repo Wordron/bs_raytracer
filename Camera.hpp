@@ -16,8 +16,8 @@ namespace RayTracer {
         public:
             Camera(
                 std::pair<unsigned int, unsigned int> resolution,
-                Math::Point3D pos = Math::Point3D(),
-                Math::Vector3D rotation = Math::Vector3D()
+                Math::Point3D pos,
+                Math::Vector3D rotation
             );
             ~Camera() = default;
             RayTracer::Ray ray(double, double);
@@ -27,6 +27,9 @@ namespace RayTracer {
             Rectangle3D _screen;
             std::pair<unsigned int, unsigned int> _resolution;
             Math::Vector3D _rotation;
+            Math::Vector3D _AB;
+            Math::Vector3D _AC;
+            Math::Vector3D _normalVector;
         private:
     };
 };

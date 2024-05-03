@@ -30,7 +30,7 @@ double Math::Vector3D::dot(std::vector<double> array1, std::vector<double> array
 {
     double result = 0;
 
-    for (int i = 0; i < array1.size(); i++)
+    for (std::size_t i = 0; i < array1.size(); i++)
         result = result + (array1[i] * array2[i]);
     return result;
 }

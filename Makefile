@@ -12,20 +12,21 @@ SRC    =	main.cpp 	\
 			Rectangle3D.cpp 	\
 			Sphere.cpp 	\
 			Vector3D.cpp 	\
+			SfmlUI.cpp 	\
 
 
 OBJ    =    $(SRC:.cpp=.o)
 
 NAME	=	a.out
 
-CFLAGS = -std=c++20 -Wall -Wextra -Werror
+CXXFLAGS = -std=c++20 -Wall -Wextra -lsfml-graphics -lsfml-window -lsfml-system
 
 PATH_TO_CHECKER = /home/${USER}/coding-style-checker
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-		g++ -o $(NAME) $(CFLAGS) $(OBJ)
+		g++ -o $(NAME) $(CXXFLAGS) $(OBJ)
 
 clean:
 		rm -f $(OBJ)
