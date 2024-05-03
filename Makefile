@@ -12,6 +12,7 @@ SRC    =	main.cpp 	\
 			Rectangle3D.cpp 	\
 			Sphere.cpp 	\
 			Plane.cpp 	\
+			Vector3D.cpp 	\
 			SfmlUI.cpp 	\
 
 
